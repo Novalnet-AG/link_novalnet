@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment-settings xmlns="http://www.demandware.com/xml/impex/paymentsettings/2009-09-15">
+	
+	<payment-method method-id="NOVALNET_SEPA">
+        <name xml:lang="x-default">Direct Debit SEPA</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_CREDITCARD">
+        <name xml:lang="x-default">Credit&#47;Debit Cards</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_INVOICE">
+        <name xml:lang="x-default">Invoice</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+
+    <payment-method method-id="NOVALNET_PREPAYMENT">
+        <name xml:lang="x-default">Prepayment</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_GUARANTEED_INVOICE">
+        <name xml:lang="x-default">Invoice</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_GUARANTEED_SEPA">
+        <name xml:lang="x-default">Direct Debit SEPA</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+
+    <payment-method method-id="NOVALNET_IDEAL">
+        <name xml:lang="x-default">iDEAL</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+
+    <payment-method method-id="NOVALNET_SOFORT">
+        <name xml:lang="x-default">Sofort</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+
+    <payment-method method-id="NOVALNET_GIROPAY">
+        <name xml:lang="x-default">giropay</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_CASHPAYMENT">
+        <name xml:lang="x-default">Barzahlen&#47;viacash</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_PRZELEWY">
+        <name xml:lang="x-default">Przelewy24</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_EPS">
+        <name xml:lang="x-default">eps</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_INSTALMENT_INVOICE">
+        <name xml:lang="x-default">Instalment by Invoice</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_INSTALMENT_SEPA">
+        <name xml:lang="x-default">Instalment by Direct Debit SEPA</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_PAYPAL">
+        <name xml:lang="x-default">PayPal</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_POSTFINANCE_CARD">
+        <name xml:lang="x-default">PostFinance Card</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_POSTFINANCE">
+        <name xml:lang="x-default">PostFinance E-Finance</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_BANCONTACT">
+        <name xml:lang="x-default">Bancontact</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+    <payment-method method-id="NOVALNET_MULTIBANCO">
+        <name xml:lang="x-default">Multibanco</name>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>NOVALNET</processor-id>
+    </payment-method>
+    
+</payment-settings>

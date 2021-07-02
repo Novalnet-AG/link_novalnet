@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<extensions xmlns="http://www.demandware.com/xml/bmmodules/2007-12-11"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.demandware.com/xml/bmmodules/2007-12-11 bmext.xsd">
+	<menuaction id="novalnet_extension_submenu" menupath="orders"
+		position="100" site="true">
+		<name xml:lang="x-default">Novalnet Transactions</name>
+		<short_description xml:lang="x-default">
+			Manage the Novalnet transactions related with this site orders.
+		</short_description>
+		<description xml:lang="x-default">
+			Manage the Novalnet transactions related with this site orders.
+		</description>
+		<exec pipeline="NovalnetAdmin" node="Orders" />
+		<sub-pipelines>
+			<pipeline name="NovalnetAdmin-Orders" />
+			<pipeline name="NovalnetAdmin-OrderTransaction" />
+			<pipeline name="NovalnetAdmin-Action" />
+		</sub-pipelines>
+		<icon>icons/novalnet_transaction.png</icon>
+	</menuaction>
+</extensions>

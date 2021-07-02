@@ -1,0 +1,1147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="OrderPaymentInstrument">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="novalnetPanHash">
+                <display-name xml:lang="x-default">Novalnet PanHash</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetSepaIban">
+                <display-name xml:lang="x-default">Novalnet Sepa IBAN</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetTxnSecret">
+                <display-name xml:lang="x-default">NovalnetTxnSecret</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetUniqueId">
+                <display-name xml:lang="x-default">Novalnet UniqueId</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetCustomerDob">
+                <display-name xml:lang="x-default">Novalnet Customer Dob</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetInstalmentCycle">
+                <display-name xml:lang="x-default">Novalnet Instalment Cycle</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetSavePaymentData">
+                <display-name xml:lang="x-default">Save Novalnet Payment Data</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetSavedToken">
+                <display-name xml:lang="x-default">Novalnet Payment Token</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Order">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="novalnetPaymentComment">
+                <display-name xml:lang="x-default">Novalnet Payment Comment</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetPaymentMethod">
+                <display-name xml:lang="x-default">Novalnet Payment Method</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetPaymentStatus">
+                <display-name xml:lang="x-default">Novalnet Payment Status</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetTid">
+                <display-name xml:lang="x-default">Novalnet TID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetPaidAmount">
+                <display-name xml:lang="x-default">Amount Paid</display-name>
+                <description xml:lang="x-default">Amount paid (divide by 100)</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetOrderAmount">
+                <display-name xml:lang="x-default">Order Amount</display-name>
+                <description xml:lang="x-default">Order Amount(divide by 100)</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetServerResponse">
+                <display-name xml:lang="x-default">Novalnet Server Response</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetPaymentToken">
+                <display-name xml:lang="x-default">Novalnet Payment Token</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetSavePaymentData">
+                <display-name xml:lang="x-default">Save Novalnet Payment Data</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetRefundedAmount">
+                <display-name xml:lang="x-default">Novalnet Refunded Amount</display-name>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+    </type-extension>
+    
+    <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="nnPublicKey">
+                <display-name xml:lang="x-default">Product activation key</display-name>
+                <description xml:lang="x-default">Get your Product activation key from the Novalnet Admin Portal&#58; PROJECT &#62; Choose your project &#62; Shop Parameters &#62; API Signature &#40;Product activation key&#41;</description>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPrivateKey">
+                <display-name xml:lang="x-default">Payment access key</display-name>
+                <description xml:lang="x-default"> Get your Payment access key from the Novalnet Admin Portal&#58; PROJECT &#62; Choose your project &#62; Shop Parameters &#62; Payment access key</description>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnClientSecretKey">
+                <display-name xml:lang="x-default">Client Key</display-name>
+                <description xml:lang="x-default"> Get your client key from the Novalnet Admin Portal&#58; PROJECT &#62; Choose your project &#62; Shop Parameters &#62; Client Key</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnTariffID">
+                <display-name xml:lang="x-default">Tariff ID</display-name>
+                <description xml:lang="x-default"> Enter a Tariff ID to match the preferred tariff plan you created at the Novalnet Admin Portal for this project</description>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnEnabled">
+                <display-name xml:lang="x-default">Novalnet Enabled</display-name>
+                <description xml:lang="x-default">Enables or disables the cartridge</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnWebhookTestMode">
+                <display-name xml:lang="x-default">Allow manual testing of the Notification &#47; Webhook URL</display-name>
+                <description xml:lang="x-default">Enable this to test the Novalnet Notification &#47; Webhook URL manually. Disable this before setting your shop live to block unauthorized calls from external parties</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnWebhookEmailTo">
+                <display-name xml:lang="x-default">Send e&#45;mail to</display-name>
+                <description xml:lang="x-default">Notification &#47; Webhook URL execution messages will be sent to this e&#45;mail</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnSepaTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnSepaPaymentAction">
+                <display-name xml:lang="x-default">Payment Action</display-name>
+                <description xml:lang="x-default">Choose whether or not the payment should be charged immediately. Capture completes the transaction by transferring the funds from buyer account to merchant account. Authorize verifies payment details and reserves funds to capture it later &#44; giving time for the merchant to decide on the order</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Capture</display>
+                        <value>capture</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Authorize</display>
+                        <value>authorize</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnSepaOnholdAmount">
+                <display-name xml:lang="x-default">Minimum transaction amount for authorization</display-name>
+                <description xml:lang="x-default">In case the order amount exceeds the mentioned limit, the transaction will be set on-hold till your confirmation of the transaction. You can leave the field empty if you wish to process all the transactions as on-hold</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnSepaOneclick">
+                <display-name xml:lang="x-default">Enable Oneclick Shopping</display-name>
+                <description xml:lang="x-default">Payment details that are saved during the ordering process can be used for future payments</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnSepaDuedate">
+                <display-name xml:lang="x-default">Payment due date &#40;in days&#41;</display-name>
+                <description xml:lang="x-default">Number of days after which the payment is debited &#40; must be between 2 and 14 days &#41;</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnSepaBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCCTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCCPaymentAction">
+                <display-name xml:lang="x-default">Payment Action</display-name>
+                <description xml:lang="x-default">Choose whether or not the payment should be charged immediately. Capture completes the transaction by transferring the funds from buyer account to merchant account. Authorize verifies payment details and reserves funds to capture it later &#44; giving time for the merchant to decide on the order</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Capture</display>
+                        <value>capture</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Authorize</display>
+                        <value>authorize</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCCOnholdAmount">
+                <display-name xml:lang="x-default">Minimum transaction amount for authorization</display-name>
+                <description xml:lang="x-default">In case the order amount exceeds the mentioned limit, the transaction will be set on-hold till your confirmation of the transaction. You can leave the field empty if you wish to process all the transactions as on-hold</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCCOneclick">
+                <display-name xml:lang="x-default">Enable Oneclick Shopping</display-name>
+                <description xml:lang="x-default">Payment details that are saved during the ordering process can be used for future payments</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCCEnforce3d">
+                <display-name xml:lang="x-default">Enforce 3D secure payment outside EU</display-name>
+                <description xml:lang="x-default">By enabling this option, all payments from cards issued outside the EU will be authenticated via 3DS 2.0 SCA.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCCInlineForm">
+                <display-name xml:lang="x-default">Enable inline form</display-name>
+                <description xml:lang="x-default">Inline form &#58; The following fields will be shown in the checkout in two lines &#58; card holder &#38; credit card number &#47; expiry date &#47; CVC</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCCLabelStyle">
+                <display-name xml:lang="x-default">CSS settings for iframe form Label</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCCInputStyle">
+                <display-name xml:lang="x-default">CSS settings for iframe form Input</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCCTextStyle">
+                <display-name xml:lang="x-default">CSS settings for iframe form text</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCCBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInvoiceTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInvoicePaymentAction">
+                <display-name xml:lang="x-default">Payment Action</display-name>
+                <description xml:lang="x-default">Choose whether or not the payment should be charged immediately. Capture completes the transaction by transferring the funds from buyer account to merchant account. Authorize verifies payment details and reserves funds to capture it later &#44; giving time for the merchant to decide on the order</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Capture</display>
+                        <value>capture</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Authorize</display>
+                        <value>authorize</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInvoiceOnholdAmount">
+                <display-name xml:lang="x-default">Minimum transaction amount for authorization</display-name>
+                <description xml:lang="x-default">In case the order amount exceeds the mentioned limit, the transaction will be set on-hold till your confirmation of the transaction. You can leave the field empty if you wish to process all the transactions as on-hold</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInvoiceDuedate">
+                <display-name xml:lang="x-default">Payment due date &#40;in days&#41;</display-name>
+                <description xml:lang="x-default">Number of days given to the buyer to transfer the amount to Novalnet &#40;must be greater than 7 days&#41;. If this field is left blank&#44; 14 days will be set as due date by default</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInvoiceBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPrepaymentTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPrepaymentDuedate">
+                <display-name xml:lang="x-default">Payment due date &#40;in days&#41;</display-name>
+                <description xml:lang="x-default">Number of days given to the buyer to transfer the amount to Novalnet &#40;must be between 7 and 28 days&#41;. If this field is left blank&#44; 14 days will be set as due date by default.</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPrepaymentBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedSepaTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedSepaPaymentAction">
+                <display-name xml:lang="x-default">Payment Action</display-name>
+                <description xml:lang="x-default">Choose whether or not the payment should be charged immediately. Capture completes the transaction by transferring the funds from buyer account to merchant account. Authorize verifies payment details and reserves funds to capture it later &#44; giving time for the merchant to decide on the order</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Capture</display>
+                        <value>capture</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Authorize</display>
+                        <value>authorize</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedSepaOnholdAmount">
+                <display-name xml:lang="x-default">Minimum transaction amount for authorization</display-name>
+                <description xml:lang="x-default">In case the order amount exceeds the mentioned limit, the transaction will be set on-hold till your confirmation of the transaction. You can leave the field empty if you wish to process all the transactions as on-hold</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedSepaMinAmount">
+                <display-name xml:lang="x-default">Minimum order amount for payment guarantee</display-name>
+                <description xml:lang="x-default">Minimum order amount to display the selected payment method &#40;s&#41; at during checkout</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedSepaOneclick">
+                <display-name xml:lang="x-default">Enable Oneclick Shopping</display-name>
+                <description xml:lang="x-default">Payment details that are saved during the ordering process can be used for future payments</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedSepaDuedate">
+                <display-name xml:lang="x-default">Payment due date &#40;in days&#41;</display-name>
+                <description xml:lang="x-default">Number of days after which the payment is debited &#40;must be between 2 and 14 days&#41;</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedSepaBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedSepaForce">
+                <display-name xml:lang="x-default">Force Non&#45;Guarantee payment</display-name>
+                <description xml:lang="x-default">Even if payment guarantee is enabled&#44; payments will still be processed as non&#45;guarantee payments if the payment guarantee requirements are not met. Review the requirements under &#34;Enable Payment Guarantee&#34; in the Installation Guide</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedInvoiceTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedInvoicePaymentAction">
+                <display-name xml:lang="x-default">Payment Action</display-name>
+                <description xml:lang="x-default">Choose whether or not the payment should be charged immediately. Capture completes the transaction by transferring the funds from buyer account to merchant account. Authorize verifies payment details and reserves funds to capture it later &#44; giving time for the merchant to decide on the order</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Capture</display>
+                        <value>capture</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Authorize</display>
+                        <value>authorize</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedInvoiceOnholdAmount">
+                <display-name xml:lang="x-default">Minimum transaction amount for authorization</display-name>
+                <description xml:lang="x-default">In case the order amount exceeds the mentioned limit, the transaction will be set on-hold till your confirmation of the transaction. You can leave the field empty if you wish to process all the transactions as on-hold</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedInvoiceMinAmount">
+                <display-name xml:lang="x-default">Minimum order amount for payment guarantee</display-name>
+                <description xml:lang="x-default">Minimum order amount to display the selected payment method &#40;s&#41; at during checkout</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedInvoiceBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGuaranteedInvoiceForce">
+                <display-name xml:lang="x-default">Force Non&#45;Guarantee payment</display-name>
+                <description xml:lang="x-default">Even if payment guarantee is enabled&#44; payments will still be processed as non&#45;guarantee payments if the payment guarantee requirements are not met. Review the requirements under &#34;Enable Payment Guarantee&#34; in the Installation Guide</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnIdealTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnIdealBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnSofortTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnSofortBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGiropayTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnGiropayBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCashpaymentTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCashpaymentBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnCashpaymentDuedate">
+                <display-name xml:lang="x-default">Slip expiry date &#40;in days&#41;</display-name>
+                <description xml:lang="x-default">Number of days given to the buyer to pay at a store. If this field is left blank&#44; 14 days will be set as slip expiry date by default</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPrzelewyTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPrzelewyBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnEpsTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnEpsBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlInvoiceTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlInvoicePaymentAction">
+                <display-name xml:lang="x-default">Payment Action</display-name>
+                <description xml:lang="x-default">Choose whether or not the payment should be charged immediately. Capture completes the transaction by transferring the funds from buyer account to merchant account. Authorize verifies payment details and reserves funds to capture it later &#44; giving time for the merchant to decide on the order</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Capture</display>
+                        <value>capture</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Authorize</display>
+                        <value>authorize</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlInvoiceOnholdAmount">
+                <display-name xml:lang="x-default">Minimum transaction amount for authorization</display-name>
+                <description xml:lang="x-default">In case the order amount exceeds the mentioned limit, the transaction will be set on-hold till your confirmation of the transaction. You can leave the field empty if you wish to process all the transactions as on-hold</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlInvoiceMinAmount">
+                <display-name xml:lang="x-default">Minimum order amount for instalment payment</display-name>
+                <description xml:lang="x-default">Minimum order amount to display the selected payment method &#40;s&#41; at during checkout</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlInvoiceBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlInvoiceCycles">
+                <display-name xml:lang="x-default">Instalment cycles</display-name>
+                <description xml:lang="x-default">Select the available instalment cycles</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">2</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">3</display>
+                        <value>3</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">4</display>
+                        <value>4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">5</display>
+                        <value>5</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">6</display>
+                        <value>6</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">7</display>
+                        <value>7</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">8</display>
+                        <value>8</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">9</display>
+                        <value>9</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">10</display>
+                        <value>10</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">11</display>
+                        <value>11</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">12</display>
+                        <value>12</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">15</display>
+                        <value>15</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">18</display>
+                        <value>18</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">21</display>
+                        <value>21</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">24</display>
+                        <value>24</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlSepaTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlSepaPaymentAction">
+                <display-name xml:lang="x-default">Payment Action</display-name>
+                <description xml:lang="x-default">Choose whether or not the payment should be charged immediately. Capture completes the transaction by transferring the funds from buyer account to merchant account. Authorize verifies payment details and reserves funds to capture it later &#44; giving time for the merchant to decide on the order</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Capture</display>
+                        <value>capture</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Authorize</display>
+                        <value>authorize</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlSepaOnholdAmount">
+                <display-name xml:lang="x-default">Minimum transaction amount for authorization</display-name>
+                <description xml:lang="x-default">In case the order amount exceeds the mentioned limit, the transaction will be set on-hold till your confirmation of the transaction. You can leave the field empty if you wish to process all the transactions as on-hold</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlSepaOneclick">
+                <display-name xml:lang="x-default">Enable Oneclick Shopping</display-name>
+                <description xml:lang="x-default">Payment details that are saved during the ordering process can be used for future payments</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlSepaMinAmount">
+                <display-name xml:lang="x-default">Minimum order amount for instalment payment</display-name>
+                <description xml:lang="x-default">Minimum order amount to display the selected payment method &#40;s&#41; at during checkout</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlSepaDuedate">
+                <display-name xml:lang="x-default">Payment due date &#40;in days&#41;</display-name>
+                <description xml:lang="x-default">Number of days after which the payment is debited &#40;must be between 2 and 14 days&#41;</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlSepaBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnInstlSepaCycles">
+                <display-name xml:lang="x-default">Instalment cycles</display-name>
+                <description xml:lang="x-default">Select the available instalment cycles</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <select-multiple-flag>true</select-multiple-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">2</display>
+                        <value>2</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">3</display>
+                        <value>3</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">4</display>
+                        <value>4</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">5</display>
+                        <value>5</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">6</display>
+                        <value>6</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">7</display>
+                        <value>7</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">8</display>
+                        <value>8</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">9</display>
+                        <value>9</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">10</display>
+                        <value>10</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">11</display>
+                        <value>11</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">12</display>
+                        <value>12</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">15</display>
+                        <value>15</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">18</display>
+                        <value>18</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">21</display>
+                        <value>21</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">24</display>
+                        <value>24</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPaypalTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPaypalPaymentAction">
+                <display-name xml:lang="x-default">Payment Action</display-name>
+                <description xml:lang="x-default">Choose whether or not the payment should be charged immediately. Capture completes the transaction by transferring the funds from buyer account to merchant account. Authorize verifies payment details and reserves funds to capture it later &#44; giving time for the merchant to decide on the order</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Capture</display>
+                        <value>capture</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Authorize</display>
+                        <value>authorize</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPaypalOnholdAmount">
+                <display-name xml:lang="x-default">Minimum transaction amount for authorization</display-name>
+                <description xml:lang="x-default">In case the order amount exceeds the mentioned limit, the transaction will be set on-hold till your confirmation of the transaction. You can leave the field empty if you wish to process all the transactions as on-hold</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPaypalOneclick">
+                <display-name xml:lang="x-default">Enable Oneclick Shopping</display-name>
+                <description xml:lang="x-default">Payment details that are saved during the ordering process can be used for future payments</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPaypalBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPostfinanceCardTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPostfinanceCardBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPostfinanceTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPostfinanceBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnBancontactTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnBancontactBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnMultibancoTestMode">
+                <display-name xml:lang="x-default">Enable test mode</display-name>
+                <description xml:lang="x-default">The payment will be processed in the test mode therefore amount for this transaction will not be charged</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnMultibancoBuyerNotification">
+                <display-name xml:lang="x-default">Notification for the buyer</display-name>
+                <description xml:lang="x-default">The entered text will be displayed at the checkout page</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Novalnet">
+                <display-name xml:lang="x-default">Novalnet Global Configuration</display-name>
+                <description xml:lang="x-default">Secured and trusted means of accepting all payment methods supported worldwide. Novalnet provides the most convenient way to increase your sales and deliver seamless checkout experience for your customers</description>
+                <attribute attribute-id="nnPublicKey"/>
+                <attribute attribute-id="nnPrivateKey"/>
+                <attribute attribute-id="nnClientSecretKey"/>
+                <attribute attribute-id="nnTariffID"/>
+                <attribute attribute-id="nnEnabled"/>
+                <attribute attribute-id="nnWebhookTestMode"/>
+                <attribute attribute-id="nnWebhookEmailTo"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Direct Debit SEPA">
+                <display-name xml:lang="x-default">Novalnet Direct Debit SEPA Configuration</display-name>
+                <description xml:lang="x-default">Europe-wide Direct Debit system that allows you to collect Euro currencies from buyers in the 34 SEPA countries and associated regions</description>
+                <attribute attribute-id="nnSepaTestMode"/>
+                <attribute attribute-id="nnSepaPaymentAction"/>
+                <attribute attribute-id="nnSepaOnholdAmount"/>
+                <attribute attribute-id="nnSepaOneclick"/>
+                <attribute attribute-id="nnSepaDuedate"/>
+                <attribute attribute-id="nnSepaBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Credit&#47;Debit Cards">
+                <display-name xml:lang="x-default">Novalnet Credit&#47;Debit Cards Configuration</display-name>
+                <description xml:lang="x-default">Funds are withdrawn from the buyer's account using credit/debit card details</description>
+                <attribute attribute-id="nnCCTestMode"/>
+                <attribute attribute-id="nnCCPaymentAction"/>
+                <attribute attribute-id="nnCCOnholdAmount"/>
+                <attribute attribute-id="nnCCOneclick"/>
+                <attribute attribute-id="nnCCEnforce3d"/>
+                <attribute attribute-id="nnCCInlineForm"/>
+                <attribute attribute-id="nnCCLabelStyle"/>
+                <attribute attribute-id="nnCCInputStyle"/>
+                <attribute attribute-id="nnCCTextStyle"/>
+                <attribute attribute-id="nnCCBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Invoice">
+                <display-name xml:lang="x-default">Novalnet Invoice Configuration</display-name>
+                <description xml:lang="x-default">A payable credit note with the order details</description>
+                <attribute attribute-id="nnInvoiceTestMode"/>
+                <attribute attribute-id="nnInvoicePaymentAction"/>
+                <attribute attribute-id="nnInvoiceOnholdAmount"/>
+                <attribute attribute-id="nnInvoiceDuedate"/>
+                <attribute attribute-id="nnInvoiceBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Prepayment">
+                <display-name xml:lang="x-default">Novalnet Prepayment Configuration</display-name>
+                <description xml:lang="x-default">Payment is debited after order confirmation and, the goods are then delivered</description>
+                <attribute attribute-id="nnPrepaymentTestMode"/>
+                <attribute attribute-id="nnPrepaymentDuedate"/>
+                <attribute attribute-id="nnPrepaymentBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Direct Debit SEPA with payment guarantee">
+                <display-name xml:lang="x-default">Novalnet Direct Debit SEPA with payment guarantee Configuration</display-name>
+                <description xml:lang="x-default">Guaranteed payment made to you either from the buyer or from payment guarantee for the purchase made through SEPA</description>
+                <attribute attribute-id="nnGuaranteedSepaTestMode"/>
+                <attribute attribute-id="nnGuaranteedSepaPaymentAction"/>
+                <attribute attribute-id="nnGuaranteedSepaOnholdAmount"/>
+                <attribute attribute-id="nnGuaranteedSepaOneclick"/>
+                <attribute attribute-id="nnGuaranteedSepaMinAmount"/>
+                <attribute attribute-id="nnGuaranteedSepaDuedate"/>
+                <attribute attribute-id="nnGuaranteedSepaBuyerNotification"/>
+                <attribute attribute-id="nnGuaranteedSepaForce"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Invoice with payment guarantee">
+                <display-name xml:lang="x-default">Novalnet Invoice with payment guarantee Configuration</display-name>
+                <description xml:lang="x-default">Guaranteed payment made to you either from the buyer or from payment guarantee for the purchase made through invoice</description>
+                <attribute attribute-id="nnGuaranteedInvoiceTestMode"/>
+                <attribute attribute-id="nnGuaranteedInvoicePaymentAction"/>
+                <attribute attribute-id="nnGuaranteedInvoiceOnholdAmount"/>
+                <attribute attribute-id="nnGuaranteedInvoiceMinAmount"/>
+                <attribute attribute-id="nnGuaranteedInvoiceBuyerNotification"/>
+                <attribute attribute-id="nnGuaranteedInvoiceForce"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet iDEAL">
+                <display-name xml:lang="x-default">Novalnet iDEAL Configuration</display-name>
+                <description xml:lang="x-default">Dutch payment method that allow your buyers to make instant payments online through his own bank</description>
+                <attribute attribute-id="nnIdealTestMode"/>
+                <attribute attribute-id="nnIdealBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Sofort">
+                <display-name xml:lang="x-default">Novalnet Sofort Configuration</display-name>
+                <description xml:lang="x-default">Pan European payment method allows buyers to pay through their own internet banking system</description>
+                <attribute attribute-id="nnSofortTestMode"/>
+                <attribute attribute-id="nnSofortBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet giropay">
+                <display-name xml:lang="x-default">Novalnet giropay Configuration</display-name>
+                <description xml:lang="x-default">German based online payment method where funds are instantly transferred from buyer's account to your account</description>
+                <attribute attribute-id="nnGiropayTestMode"/>
+                <attribute attribute-id="nnGiropayBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Barzahlen&#47;viacash">
+                <display-name xml:lang="x-default">Novalnet Barzahlen&#47;viacash Configuration</display-name>
+                <description xml:lang="x-default">Transaction is completed through cash payments using cash slips in countries like Germany and Austria</description>
+                <attribute attribute-id="nnCashpaymentTestMode"/>
+                <attribute attribute-id="nnCashpaymentDuedate"/>
+                <attribute attribute-id="nnCashpaymentBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Przelewy24">
+                <display-name xml:lang="x-default">Novalnet Przelewy24 Configuration</display-name>
+                <description xml:lang="x-default">Poland based payment method which allows buyers pay using bank transfers or any other methods</description>
+                <attribute attribute-id="nnPrzelewyTestMode"/>
+                <attribute attribute-id="nnPrzelewyBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet eps">
+                <display-name xml:lang="x-default">Novalnet eps Configuration</display-name>
+                <description xml:lang="x-default">Austria based online banking method that allows your buyers to pay using any form of electronic payments</description>
+                <attribute attribute-id="nnEpsTestMode"/>
+                <attribute attribute-id="nnEpsBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Instalment by Invoice">
+                <display-name xml:lang="x-default">Novalnet Instalment by Invoice Configuration</display-name>
+                <description xml:lang="x-default">Buyer pays his bill as instalment payments through a single or recurring invoice(s)</description>
+                <attribute attribute-id="nnInstlInvoiceTestMode"/>
+                <attribute attribute-id="nnInstlInvoicePaymentAction"/>
+                <attribute attribute-id="nnInstlInvoiceOnholdAmount"/>
+                <attribute attribute-id="nnInstlInvoiceMinAmount"/>
+                <attribute attribute-id="nnInstlInvoiceBuyerNotification"/>
+                <attribute attribute-id="nnInstlInvoiceCycles"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Instalment by Direct Debit SEPA">
+                <display-name xml:lang="x-default">Novalnet Instalment by Direct Debit SEPA Configuration</display-name>
+                <description xml:lang="x-default">Through this payment method you can collect amount periodically like subscription or instalment payments through SEPA</description>
+                <attribute attribute-id="nnInstlSepaTestMode"/>
+                <attribute attribute-id="nnInstlSepaPaymentAction"/>
+                <attribute attribute-id="nnInstlSepaOnholdAmount"/>
+                <attribute attribute-id="nnInstlSepaOneclick"/>
+                <attribute attribute-id="nnInstlSepaMinAmount"/>
+                <attribute attribute-id="nnInstlSepaDuedate"/>
+                <attribute attribute-id="nnInstlSepaBuyerNotification"/>
+                <attribute attribute-id="nnInstlSepaCycles"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet PayPal">
+                <display-name xml:lang="x-default">Novalnet PayPal Configuration</display-name>
+                <description xml:lang="x-default">Electronic wallet that alows buyers to pay using any payment modes they have added to their PayPal account</description>
+                <attribute attribute-id="nnPaypalTestMode"/>
+                <attribute attribute-id="nnPaypalPaymentAction"/>
+                <attribute attribute-id="nnPaypalOnholdAmount"/>
+                <attribute attribute-id="nnPaypalOneclick"/>
+                <attribute attribute-id="nnPaypalBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet PostFinance Card">
+                <display-name xml:lang="x-default">Novalnet PostFinance Card Configuration</display-name>
+                <description xml:lang="x-default">Swiss based online card payment method which allows buyers to pay using PostFinance Card</description>
+                <attribute attribute-id="nnPostfinanceCardTestMode"/>
+                <attribute attribute-id="nnPostfinanceCardBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet PostFinance E-Finance">
+                <display-name xml:lang="x-default">Novalnet PostFinance E-Finance Configuration</display-name>
+                <description xml:lang="x-default">Swiss based online account system where buyers are redirected to login and pay using their PostFinance Card</description>
+                <attribute attribute-id="nnPostfinanceTestMode"/>
+                <attribute attribute-id="nnPostfinanceBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Bancontact">
+                <display-name xml:lang="x-default">Novalnet Bancontact Configuration</display-name>
+                <description xml:lang="x-default">Belgium based online payment method where buyers are redirected to Bancontact site/app for payment authorization</description>
+                <attribute attribute-id="nnBancontactTestMode"/>
+                <attribute attribute-id="nnBancontactBuyerNotification"/>
+            </attribute-group>
+            <attribute-group group-id="Novalnet Multibanco">
+                <display-name xml:lang="x-default">Novalnet Multibanco Configuration</display-name>
+                <description xml:lang="x-default">Voucher based payment method where buyer pays in ATM or at retail outlets using a reference ID</description>
+                <attribute attribute-id="nnMultibancoTestMode"/>
+                <attribute attribute-id="nnMultibancoBuyerNotification"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+</metadata>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
