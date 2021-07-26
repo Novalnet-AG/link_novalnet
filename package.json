@@ -1,6 +1,6 @@
 {
   "name": "int_novalnet_sfra",
-  "version": "1.0.0",
+  "version": "21.1.0",
   "description": "Novalnet Payment Cartridge",
   "main": "index.js",
   "paths": {
