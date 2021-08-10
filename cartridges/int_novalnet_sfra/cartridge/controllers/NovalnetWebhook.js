@@ -346,7 +346,7 @@ function authenticateEventData(data) {
     var testMode = novalnetConfig.getWebhookTestMode();
 
     if (request.getHttpRemoteAddress()) {
-        if (!['195.143.189.210', '195.143.189.214'].indexOf(request.getHttpRemoteAddress()) > -1 && testMode === false) {
+        if (!['213.95.190.5'].indexOf(request.getHttpRemoteAddress()) > -1 && testMode === false) {
             return 'Unauthorised access from the IP ' + request.getHttpRemoteAddress();
         }
     } else {
