@@ -1,5 +1,4 @@
 *** Changelog ***
 
 = 1.0.0 - 2021.08.11 =
-
 New release: Payment cartridge implemented with seamless payment experience & features including one-click payment
