@@ -37,20 +37,20 @@ Novalnet <a href="https://www.novalnet.de/"> merchant account </a> is required f
 -	Credit/Debit Cards
 -	Invoice
 -	Prepayment
--	Barzahlen/viacash
--	Instant Bank Transfer
--	PayPal
+-	Invoice with payment guarantee
+-	Direct Debit SEPA with payment guarantee
+-	Instalment by Invoice
+-	Instalment by Direct Debit SEPA
 -	iDEAL
--	eps
 -	Sofort
 -	giropay
+-	Barzahlen/viacash
 -	Przelewy24
--	Direct Debit SEPA with payment guarantee
--	Invoice with payment guarantee
--	Instalment by invoice
+-	eps
+-	PayPal
+- PostFinance Card
+-	PostFinance E-Finance
 -	Bancontact
--	PostFinance Card
--	PostFinance E-finance
 -	Multibanco
 
 ## Installation of Salesforce B2C Commerce 
