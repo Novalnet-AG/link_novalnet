@@ -2,7 +2,7 @@
 <a href="https://www.novalnet.de/">Novalnet’s</a> Salesforce B2C Commerce Cloud is certified, offering fully functional cartridge for payment integrations in your e-commerce website. Novalnet's Salesforce B2C Commerce Cloud cartridge offers a wide range of automated services from checkout till debt collection.
 
 ## Integration requirements
-Novalnet <a href="https://www.novalnet.de/"> merchant account </a> is required for processing all international and local payments through this Novalnet payment cartridge. The cartridge is available for **Salesforce Commerce Cloud** versions 20.10 to 21.5 and **Storefront Reference Architecture** versions 5.0.1 to 5.3.0 in the following languages: EN & DE
+Novalnet <a href="https://www.novalnet.de/"> merchant account </a> is required for processing all international and local payments through this Novalnet payment cartridge. The cartridge is available for **Salesforce Commerce Cloud** versions 20.10 to 21.8 and **Storefront Reference Architecture** versions 5.0.1 to 6.0.0 in the following languages: EN & DE
 
 ## Integration Features
 - More than 150 processing currencies with automated settlements in 25 currencies worldwide.
