@@ -1,4 +1,9 @@
 *** Changelog ***
 
+= 1.0.1 - 2021.09.20 =
+* Fix       - Compatibility for CommerceCloud 21.8 and sfra 6.0.0
+* Enhanced  - Auto configuration call perform via cURL method
+* Enhanced  -  Credit/Debit Cards payment method description
+
 = 1.0.0 - 2021.08.11 =
 New release: Payment cartridge implemented with seamless payment experience & features including one-click payment
