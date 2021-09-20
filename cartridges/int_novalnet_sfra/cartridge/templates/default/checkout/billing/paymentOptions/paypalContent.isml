@@ -1,0 +1,52 @@
+<div class="tab-pane <isif condition="${checkOption}">active</isif> ${paymentOption.ID}-content" id="${paymentOption.ID}-content" role="tabpanel">
+    <fieldset class="payment-form-fields">
+        <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}" value="${paymentOption.ID}">
+        <isif condition="${novalnetPaymentConfig.testMode === 1}">
+            <div class="nn-test-mode"><span>${Resource.msg('novalnet.testmode', 'novalnet', null)}</span></div>
+        </isif>
+        <isset name="novalnetSavedPaymentData" value="${novalnetHelper.getSavedPaymentDetails(dw.order.BasketMgr.getCurrentBasket(), 'PAYPAL')}" scope="page" />
+        <isif condition="${novalnetPaymentConfig.oneclick === true}">
+            <isif condition="${!empty(novalnetSavedPaymentData)}">
+                <isloop items="${novalnetSavedPaymentData}" var="savedPaymentData" status="paymentDataLoop">
+                    <div>
+                        <input type="radio" name="novalnet_paypal_saved_token" id="novalnet_paypal_saved_token_${paymentDataLoop.index}" value="${savedPaymentData.token}" data-tid="${savedPaymentData.tid}">
+                        <label for="novalnet_paypal_saved_token_${paymentDataLoop.index}">
+                        ${savedPaymentData.labelText}
+                        </label>
+                        &nbsp;&nbsp;<span class="nn-delete-token-btn" data-order-no="${savedPaymentData.orderNo}" data-order-token="${savedPaymentData.orderToken}" data-toggle="modal" data-target="#nnDeleteTokenModal"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                    </div>
+                </isloop>
+                <input type="radio" name="novalnet_paypal_saved_token" id="novalnet_paypal_new_card" checked value="new_account_details">
+                <label for="novalnet_paypal_new_card">Use a new Account</label>
+            </isif>
+        </isif>
+        <div id="novalnet_paypal_payment_form">
+            <isif condition="${novalnetPaymentConfig.oneclick === true}">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" id="novalnet_paypal_save_payment_details" name="novalnet_paypal_save_payment_details" checked>
+                                <label for="novalnet_paypal_save_payment_details" class="custom-control-label checkout-checkbox">
+                                    Save for future purchase
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </isif>
+        </div>
+        <div class="nn-info-box">
+           <ul>
+               <li>
+                    <p>
+                        ${Resource.msg('novalnet.paypal.description', 'novalnet', null)}
+                    </p>
+                    <isif condition="${novalnetPaymentConfig.buyerNotification}">
+                        <p>${novalnetPaymentConfig.buyerNotification}</p>
+                    </isif>
+                </li>
+            </ul>
+        </div>
+    </fieldset>
+</div>
