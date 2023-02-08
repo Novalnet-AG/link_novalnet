@@ -1,0 +1,105 @@
+<isinclude template="inc/Modules">
+<isdecorate template="application/MenuFrame"> 
+	<div class="novalnetbm_header">
+	<isset name="siteprefsUrl"   value="${URLUtils.url('SiteNavigationBar-ShowMenuitemOverview', 'CurrentMenuItemId', 'site-prefs')}" scope="page">
+	<isbreadcrumb name1="Site Preferences" url1="${siteprefsUrl}" name2="Novalnet Global Configuration">
+	<table>
+		<tr><td width="100%" class="table_title w e s n">Novalnet Global Configuration</td></tr>
+		<tr><td class="w e s"></td></tr>
+		<tr><td class="table_title_description e w"><p>Secured and trusted means of accepting all payment methods supported worldwide. Novalnet provides the most convenient way to increase your sales and deliver seamless checkout experience for your customers</p></td></tr>
+	</table>
+	</div>
+	<table border="0" cellspacing="0" cellpadding="4" width="100%" class="nn_error_box error_box n s e w" style="display:none">
+		<tbody>
+		<tr valign="top">
+			<td class="error_icon top e"></td>
+			<td class="error top" width="100%"><p>Some required input is missing. Please supply all required fields.</p></td>
+		</tr>
+		</tbody>
+	</table>
+	<table border="0" cellspacing="0" cellpadding="4" width="100%" class="nn_testmode_box error_box n s e w" style="display:none">
+		<tbody>
+		<tr valign="top">
+			<td class="error_icon top e"></td>
+			<td class="error top" width="100%"><p>${Resource.msg('novalnet.project_test_mode.title', 'novalnet', null)}</p></td>
+		</tr>
+		</tbody>
+	</table>
+	<isscript> 
+		var novalnetEnabled = (pdict.novalnetEnabled) ? 'checked=checked' : ''; 
+		var nnWebhookTestMode = (pdict.nnWebhookTestMode) ? 'checked=checked' : '';
+    </isscript>
+	<form class="col-6" id="novalnet-configuration-form" action="${URLUtils.url('NovalnetConfiguration-SaveConfiguration')}" method="POST">
+		<input type="hidden" id="nn-ajax-url" value="${URLUtils.url('NovalnetConfiguration-GetMerchantCredentials')}">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody id="configuration-content" class="hide-content">
+                <tr>
+                    <td class="n w e">
+                        <table border="0" cellpadding="2" cellspacing="3" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td class="table_header aldi" colspan="2" width="100%">General</td>
+                                </tr>
+                                <tr>
+                                        <td class="fielditem2" align="right" nowrap="nowrap">${Resource.msg('novalnet.cartridge.enabled', 'novalnet', null)}</td>
+                                        <td><input type="checkbox" id="novalnet-enabled" name="novalnet_enabled" ${novalnetEnabled}> <img src="${URLUtils.staticURL('/icons/help_ico.gif')}" title="${Resource.msg('novalnet.cartridge.enabled.desc', 'novalnet', null)}"/></td>
+								</tr>
+                                <tr>
+                                    <td class="fielditem2" align="right" nowrap="nowrap">${Resource.msg('novalnet.product_key.label', 'novalnet', null)}:<span class="star">*</span></td>
+                                    <td>
+                                        <input type="text" id="product-activation-key" size="100" name="product_activation_key" value="${pdict.productActivationKey}"> <img src="${URLUtils.staticURL('/icons/help_ico.gif')}" title="${Resource.msg('novalnet.product_key.desc', 'novalnet', null)}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fielditem2" align="right" nowrap="nowrap">${Resource.msg('novalnet.payment_access_key.label', 'novalnet', null)}:<span class="star">*</span></td>
+                                    <td>
+                                        <input type="text" id="payment-access-key" size="100" name="payment_access_key" value="${pdict.paymentAccessKey}"> <img src="${URLUtils.staticURL('/icons/help_ico.gif')}" title="${Resource.msg('novalnet.payment_access_key.desc', 'novalnet', null)}"/> </td>
+                                </tr>
+                                <tr>
+                                        <td class="fielditem2" align="right" nowrap="nowrap">${Resource.msg('novalnet.tariff.label', 'novalnet', null)}:<span class="star">*</span></td>
+                                        <td>
+                                            <select name="tariff" id="tariff"> </select>
+                                            <input type="hidden" name="selected_tariff" id="selected-tariff" value="${pdict.nnTariffID}">
+                                            <img src="${URLUtils.staticURL('/icons/help_ico.gif')}" title="${Resource.msg('novalnet.tariff.desc', 'novalnet', null)}"/>
+                                        </td>
+                                </tr>
+                                <tr>
+									<td class="table_header aldi" colspan="2" width="100%">${Resource.msg('novalnet.webhook.title', 'novalnet', null)}</td>
+								</tr>
+								<tr>
+									<td class="fielditem2" align="right" nowrap="nowrap">${Resource.msg('novalnet.webhook_url.label', 'novalnet', null)}:</td>
+									<td><input type="text" id="nn-webhook-url" name="nn_webhook_url" size="100" value="${pdict.nnWebhookUrl}"> <img src="${URLUtils.staticURL('/icons/help_ico.gif')}"  title="${Resource.msg('novalnet.webhook_url.desc', 'novalnet', null)}"/></td>
+								</tr>
+								<tr>
+									<td class="fielditem2" align="right" nowrap="nowrap">${Resource.msg('novalnet.webhook_testmode.label', 'novalnet', null)}:</td>
+									<td><input type="checkbox" id="nn-webhook-testMode" name="nn_webhook_testMode" ${nnWebhookTestMode}> <img src="${URLUtils.staticURL('/icons/help_ico.gif')}"  title="${Resource.msg('novalnet.webhook_testmode.desc', 'novalnet', null)}"/></td>
+								</tr>
+								<tr>
+									<td class="fielditem2" align="right" nowrap="nowrap">${Resource.msg('novalnet.webhook_email.label', 'novalnet', null)}:</td>
+									<td><input type="text" id="nn-webhook-email" name="nn_webhook_email" size="100" value="${pdict.nnWebhookEmail}"> <img src="${URLUtils.staticURL('/icons/help_ico.gif')}" title="${Resource.msg('novalnet.webhook_email.desc', 'novalnet', null)}"/></td>
+								</tr>
+								<input type="hidden" name="client_key" id="client-key" value="${pdict.clientKey}">
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td class="aldi">
+						<table width="100%" border="0" cellspacing="4" cellpadding="0">
+							<tbody>
+								<tr>
+									<td align="right">
+										<input type="submit" name="submit_button" class="button" id="save-configuration" value="Submit"> </td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<script type="text/javascript" src="${URLUtils.staticURL('/novalnetbm/js/novalnetConfig.js')}"></script>
+    <script type="text/javascript">
+		novalnetConfig.init();
+    </script>
+</isdecorate>

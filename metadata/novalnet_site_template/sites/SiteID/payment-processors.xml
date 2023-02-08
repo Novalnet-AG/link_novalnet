@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment-processors xmlns="http://www.demandware.com/xml/impex/paymentprocessor/2007-03-31">
+    <payment-processor processor-id="NOVALNET">
+		<description>Secured and trusted means of accepting all payment methods supported worldwide. Novalnet provides the most convenient way to increase your sales and deliver seamless checkout experience for your customers</description>
+        <preferences>
+            <all-instances/>
+            <development/>
+            <staging/>
+            <production/>
+        </preferences>
+    </payment-processor>
+</payment-processors>
