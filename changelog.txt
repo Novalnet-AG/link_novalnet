@@ -1,0 +1,26 @@
+*** Changelog ***
+
+= 1.1.1 - 2024.06.19 =
+* Fix   -  Compatibility for CommerceCloud 24.6 and SFRA 7.0.0
+* Removed - Payment due date configuration for Direct Debit SEPA with payment guarantee and Instalment by Direct Debit SEPA
+
+= 1.1.0 - 2023.02.08 =
+* New - Updated cart details to PayPal
+* New - Added "state" parameter in the payment request
+* New - Callback/webhook events for payment reminders and submission to the collection agency has been added
+* Fix - Compatibility for CommerceCloud 23.2 and SFRA 6.3.0
+* Enhanced - Invoice payment name is updated for German translation
+* Removed - One-click shopping for PayPal payment
+
+= 1.0.2 - 2022.08.18 =
+* Fix - Compatibility for CommerceCloud 22.7 and sfra 6.1.0 
+
+= 1.0.1 - 2021.09.20 =
+* Fix - Compatibility for CommerceCloud 21.8 and sfra 6.0.0
+* Enhanced - Auto configuration call perform via cURL method
+* Enhanced - Credit/Debit Cards payment method description
+
+= 1.0.0 - 2021.08.11 =
+* New Release: Payment cartridge implemented with seamless payment experience & features including one-click payment
+
+**** End of file ****
