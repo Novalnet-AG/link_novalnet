@@ -1,0 +1,44 @@
+<div class="payment-details">
+    <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}" var="payment">
+        <isset name="paymentProcessorID" value="${dw.order.PaymentMgr.getPaymentMethod(payment.paymentMethod).paymentProcessor.ID}" scope="page"/>
+        <isif condition="${paymentProcessorID === 'NOVALNET'}">
+            ${dw.order.PaymentMgr.getPaymentMethod(payment.paymentMethod).name}
+            <br>
+            <isset name="Order" value="${pdict.order}" scope="page"/>
+            <isif condition="${Order.orderNumber}">
+                <isset name="OrderData" value="${dw.order.OrderMgr.getOrder(Order.orderNumber)}" scope="page"/>
+                <div class="novalnet_payment_details">
+                    <div style="white-space:pre-line;"><isprint value="${OrderData.custom.novalnetPaymentComment}"/></div>
+                    <isif condition="${payment.paymentMethod === 'NOVALNET_INSTALMENT_INVOICE' || payment.paymentMethod === 'NOVALNET_INSTALMENT_SEPA'}">
+                        <isset name="novalnetHelper" value="${require('*/cartridge/scripts/novalnetHelper')}" scope="page" />
+                        <isset name="novalnetInstalmentData" value="${novalnetHelper.getInstalmentDetails(OrderData.custom.novalnetServerResponse)}" scope="page" />
+                        <br>
+                        <isif condition="${!empty(novalnetInstalmentData)}"> 
+                            <table class="table table-bordered novalnet-instalment-details-table">
+                                <tbody>
+                                    <tr>
+                                        <th>S.no</th>
+                                        <th>${Resource.msg('novalnet.date', 'novalnet', null)}</th>
+                                        <th>${Resource.msg('novalnet.instalment.transactionid', 'novalnet', null)}</th>
+                                        <th>${Resource.msg('novalnet.amount', 'novalnet', null)}</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                <isloop items="${novalnetInstalmentData.totalCycles}" var="cycle">
+                                    <tr>
+                                        <td>${cycle}</td>
+                                        <td>${novalnetInstalmentData.cycle_dates[cycle]}</td>
+                                        <isset name="tid" value="${novalnetInstalmentData[cycle] && novalnetInstalmentData[cycle].tid ? novalnetInstalmentData[cycle].tid : '-'}" scope="page" />
+                                        <td>${tid}</td>
+                                        <td>${novalnetInstalmentData.formatted_cycle_amount}</td>
+                                    </tr>
+                                </isloop>
+                                </tbody>
+                            </table>
+                        </isif>   
+                    </isif>
+                </div>
+            </isif>
+        </isif>
+    </isloop>
+</div>
