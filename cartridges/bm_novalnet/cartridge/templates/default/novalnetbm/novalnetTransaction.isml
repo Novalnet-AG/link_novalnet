@@ -1,0 +1,221 @@
+<isdecorate template="novalnetbm/util/header">
+
+<isinclude template="inc/Modules">
+<isinclude template="novalnetbm/util/modules">
+
+<table class="novalnetbm_transaction_detail_table infobox">
+    <tr>
+        <td class="novalnetbm_td_button">${Resource.msg('novalnet.transaction_details', 'novalnet', null)}</td>
+    </tr>
+</table>
+
+<table class="novalnetbm_transaction_detail_table infobox w e s n">
+    <tr>
+        <td class="infobox_title top">${Resource.msg('novalnet.customer', 'novalnet', null)}:</td>
+        <td class="infobox_item top">${pdict.customer}</td>
+    </tr>
+    <tr class="novalnetbm_gray">
+        <td class="infobox_title top">${Resource.msg('novalnet.email', 'novalnet', null)}:</td>
+        <td class="infobox_item top">${pdict.email}</td>
+    </tr>
+</table>
+
+<table class="novalnetbm_transaction_detail_table infobox w e s n">
+    <tr>
+        <td class="infobox_title top">${Resource.msg('novalnet.order_total', 'novalnet', null)}:</td>
+        <td class="infobox_item top"><isprint value="${pdict.orderTotal}"/></td>
+    </tr>
+    <tr class="novalnetbm_gray">
+        <td class="infobox_title top">${Resource.msg('novalnet.payment_method', 'novalnet', null)}:</td>
+        <td class="infobox_item top">${pdict.paymentMethod}</td>
+    </tr>
+    <tr>
+        <td class="infobox_title top">${Resource.msg('novalnet.instalment_transactionid', 'novalnet', null)}:</td>
+        <td class="infobox_item top">${pdict.transactionId}</td>
+    </tr>
+</table>
+
+<table class="novalnetbm_transaction_detail_table infobox w e s n">
+    <tr>
+        <td class="infobox_title top">${Resource.msg('novalnet.order_status', 'novalnet', null)}:</td>
+        <td class="infobox_item top">${pdict.orderStatus}</td>
+    </tr>
+    <tr class="novalnetbm_gray">
+        <td class="infobox_title top">${Resource.msg('novalnet.confirmation_status', 'novalnet', null)}:</td>
+        <td class="infobox_item top">${pdict.confirmationStatus}</td>
+    </tr>
+    <tr>
+        <td class="infobox_title top">${Resource.msg('novalnet.payment_status', 'novalnet', null)}:</td>
+        <td class="infobox_item top">${pdict.paymentStatus}</td>
+    </tr>
+    <tr class="novalnetbm_gray">
+        <td class="infobox_title top">${Resource.msg('novalnet.shipping_status', 'novalnet', null)}:</td>
+        <td class="infobox_item top">${pdict.shippingStatus}</td>
+    </tr>
+    <tr>
+        <td class="infobox_title top">${Resource.msg('novalnet.export_status', 'novalnet', null)}:</td>
+        <td class="infobox_item top">${pdict.exportStatus}</td>
+    </tr>
+</table>
+<table class="novalnetbm_transaction_detail_table infobox">
+    <tr>
+        <td class="novalnetbm_td_button" data-id="novalnet_comments_table">${Resource.msg('novalnet.order_comments', 'novalnet', null)}</td>
+    </tr>
+</table>
+<table class="novalnetbm_transaction_detail_table nn_table infobox w e s n" id="novalnet_comments_table" style="display:none">
+    <tr>
+        <td class="infobox_title top">${Resource.msg('novalnet.transaction_details', 'novalnet', null)}:</td>
+        <td class="infobox_item top" style="white-space:pre-line;"><isprint value="${pdict.novalnetComments}"></td>
+    </tr>
+</table>
+
+<input type="hidden" id="novalnet_transaction_id" value="${pdict.transactionId}">
+<input type="hidden" id="novalnet_order_no" value="${pdict.orderNo}">
+<input type="hidden" id="novalnet_order_token" value="${pdict.orderToken}">
+<isset name="showRefund" value="${pdict.showRefund}" scope="page">
+<isset name="showManageTransaction" value="${pdict.showManageTransaction}" scope="page">
+<isset name="showZeroAmountBooking" value="${pdict.showZeroAmountBooking}" scope="page">
+
+<isif condition="${showManageTransaction == true}">
+    <table class="novalnetbm_transaction_detail_table infobox">
+
+        <tr>
+            <td class="novalnetbm_td_button" data-id="novalnet_manage_transaction_table">${Resource.msg('novalnet.manage_transaction_process', 'novalnet', null)}</td>
+        </tr>
+    </table>
+    <table class="novalnetbm_transaction_detail_table nn_table infobox w e s n" id="novalnet_manage_transaction_table" style="display:none">
+        <tr>
+            <td class="infobox_title top">${Resource.msg('novalnet.select_status', 'novalnet', null)}</td>
+            <td class="infobox_item top">
+                <select id="novalnet_transaction_action">
+                    <option value="capture">${Resource.msg('novalnet.confirm', 'novalnet', null)}</option>
+                    <option value="cancel">${Resource.msg('novalnet.cancel', 'novalnet', null)}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="infobox_title top"></td>
+            <td class="infobox_item top">
+                <a class="button" id="novalnet_manage_transaction_submit">${Resource.msg('novalnet.submit', 'novalnet', null)}</a>
+            </td>
+        </tr>
+    </table>
+</isif>
+
+<isif condition="${showRefund == true}">
+    <table class="novalnetbm_transaction_detail_table infobox">
+        <tr>
+            <td class="novalnetbm_td_button" data-id="novalnet_refund_table">${Resource.msg('novalnet.refund_process', 'novalnet', null)}</td>
+        </tr>
+    </table>
+    <table class="novalnetbm_transaction_detail_table nn_table infobox w e s n" id="novalnet_refund_table" style="display:none">
+    <isset name="novalnetAmount" value="${pdict.novalnetAmount}" scope="page">
+        <tr>
+            <td class="infobox_title top">${Resource.msg('novalnet.refund_amount', 'novalnet', null)}:</td>
+            <td class="infobox_item top"><input type="text" name="novalnet_refund_amount" id="novalnet_refund_amount" value="${novalnetAmount}"><span>${Resource.msg('novalnet.amountformat.hint', 'novalnet', null)}</span></td>
+        </tr>
+        <tr>
+            <td class="infobox_title top">${Resource.msg('novalnet.refund_reason', 'novalnet', null)}:</td>
+            <td class="infobox_item top"><input type="text" name="novalnet_refund_reason" id="novalnet_refund_reason"></td>
+        </tr>
+        <tr>
+            <td class="infobox_title top"></td>
+            <td class="infobox_item top">
+                <a class="button novalnet_submit_refund_form" data-payment="" data-tid="${pdict.transactionId}">${Resource.msg('novalnet.submit', 'novalnet', null)}</a>
+            </td>
+        </tr>
+    </table>
+</isif>
+
+<isif condition="${showZeroAmountBooking == true}">
+    <table class="novalnetbm_transaction_detail_table infobox">
+        <tr>
+            <td class="novalnetbm_td_button" data-id="novalnet_zero_amount_booking_table">${Resource.msg('novalnet.zero_amount_booking_process', 'novalnet', null)}</td>
+        </tr>
+    </table>
+    <table class="novalnetbm_transaction_detail_table nn_table infobox w e s n" id="novalnet_zero_amount_booking_table" style="display:none">
+    <isset name="novalnetAmount" value="${pdict.novalnetAmount}" scope="page">
+        <tr>
+            <td class="infobox_title top">${Resource.msg('novalnet.booking_amount', 'novalnet', null)}:</td>
+            <td class="infobox_item top"><input type="text" name="novalnet_booking_amount" id="novalnet_booking_amount" value="${pdict.orderAmount}"><span>${Resource.msg('novalnet.amountformat.hint', 'novalnet', null)}</span></td>
+        </tr>
+        <tr>
+            <td class="infobox_title top"></td>
+            <td class="infobox_item top">
+                <a class="button novalnet_submit_zero_amount_booking_form" data-payment="" data-tid="${pdict.transactionId}">${Resource.msg('novalnet.submit', 'novalnet', null)}</a>
+            </td>
+        </tr>
+    </table>
+</isif>
+
+<isif condition="${pdict.showInstalmentDetails == true && !empty(pdict.novalnetInstalmentData)}">
+    <table class="novalnetbm_transaction_detail_table infobox">
+        <tr>
+            <td class="novalnetbm_td_button" data-id="novalnet_refund_table">${Resource.msg('novalnet.instalment_summary', 'novalnet', null)}</td>
+        </tr>
+    </table>
+    <table class="novalnetbm_transaction_detail_table nn_table infobox w e s n" id="novalnet_refund_table" style="display:none">
+        <isif condition="${pdict.novalnetStatus != 'DEACTIVATED' && !pdict.novalnetInstalmentData.cancel_type}">
+            <tr>
+				<td><a class="button" id="novalnet_cancel_all_instalment_cycle">${Resource.msg('novalnet.cancel_all_instalment_cycle', 'novalnet', null)}</a></td>
+				<isif condition="${pdict.novalnetInstalmentData.all_cycles_executed === 0}"> 
+					<td><a class="button" id="novalnet_cancel_remaining_instalment_cycle">${Resource.msg('novalnet.cancel_remaining_instalment_cycle', 'novalnet', null)}</a></td>
+				</isif>
+            </tr>
+        </isif>
+        <tr>
+            <td class="table_header w e s">${Resource.msg('novalnet.instalement_sno', 'novalnet', null)}</td>
+            <td class="table_header w e s">${Resource.msg('novalnet.instalment_transactionid', 'novalnet', null)}</td>
+            <td class="table_header w e s">${Resource.msg('novalnet.amount', 'novalnet', null)}</td>
+            <td class="table_header w e s">${Resource.msg('novalnet.next_instalment_date', 'novalnet', null)}</td>
+            <td class="table_header w e s">${Resource.msg('novalnet.status', 'novalnet', null)}</td>
+            <td class="table_header w e s"></td>
+        </tr>
+        <isloop items="${pdict.novalnetInstalmentData.total_cycles}" var="cycle">
+        <isset name="tid" value="${pdict.novalnetInstalmentData[cycle] && pdict.novalnetInstalmentData[cycle].tid ? pdict.novalnetInstalmentData[cycle].tid : ''}" scope="page" />
+        <isset name="instalment_cycle_refunded_amount" value="${pdict.novalnetInstalmentData[cycle] && pdict.novalnetInstalmentData[cycle].refunded_amount ? pdict.novalnetInstalmentData[cycle].refunded_amount : 0}" scope="page" />
+        <isset name="instalment_status" value="${pdict.novalnetStatus == 'DEACTIVATED' ? 'canceled' : (tid != '' ? 'paid' : 'pending')}" scope="page" />
+        <isset name="instalment_cycle_amount" value="${pdict.novalnetInstalmentData.total_cycle_count == cycle ? pdict.novalnetInstalmentData.last_cycle_amount : pdict.novalnetInstalmentData.cycle_amount}" scope="page" />
+        <isset name="instalment_cycle_open_amount" value="${instalment_cycle_amount - instalment_cycle_refunded_amount}" scope="page" />
+        <isset name="instalment_status" value="${instalment_cycle_open_amount > 0 ? instalment_status: 'refunded'}" scope="page" />
+        <isset name="instalment_next_date" value="${pdict.novalnetInstalmentData.cycle_dates[parseInt(cycle)+1] ? pdict.novalnetInstalmentData.cycle_dates[parseInt(cycle)+1] : '-'}" scope="page" />
+            <tr>
+                <td class="w e s">${cycle}</td>
+                <td class="w e s">${tid}</td>
+                <td class="w e s">${pdict.novalnetInstalmentData.total_cycle_count == cycle ? pdict.novalnetInstalmentData.formatted_last_cycle_amount : pdict.novalnetInstalmentData.formatted_cycle_amount}</td>
+                <td class="w e s">${instalment_next_date}</td>
+				<isif condition="${pdict.novalnetInstalmentData.cancel_type}">
+					<isif condition="${pdict.novalnetInstalmentData.cancel_type === 'cancel_all_cycles'}">
+						<isif condition="${tid != ''}">
+							<isset name="instalment_status" value="${'refunded'}" scope="page" />
+						<iselse>
+							<isset name="instalment_status" value="${'canceled'}" scope="page" />
+						</isif>
+					<iselseif condition="${tid != ''}">
+						<isset name="instalment_status" value="${instalment_cycle_open_amount > 0 ? 'paid' : 'refunded'}" scope="page" />
+					</iselseif>
+					<iselse>
+						<isset name="instalment_status" value="${'canceled'}" scope="page" />
+					</isif>
+                </isif>
+                <td class="w e s">${Resource.msg('novalnet.' + instalment_status, 'novalnet', null)}</td>
+                <td class="w e s">
+                <isif condition="${instalment_status == 'paid'}">
+                    <a class="button novalnet_show_instalment_refund" data-id="${cycle}">${Resource.msg('novalnet.refund', 'novalnet', null)}</a>
+                    <table id="novalnet_instalment_refund_table_${cycle}" style="display:none">
+                    <tr>
+                        <td>${Resource.msg('novalnet.amount', 'novalnet', null)}: <input type="text" id="novalnet_refund_amount_${cycle}" value="${instalment_cycle_open_amount}"></td>
+                    </tr>
+                    <tr>
+                        <td><a class="button novalnet_submit_refund_form" data-payment="instalment" data-id="${cycle}" data-tid="${tid}">${Resource.msg('novalnet.confirm', 'novalnet', null)}</a>
+                        &nbsp;&nbsp;<a class="button novalnet_hide_instalment_refund" data-id="${cycle}">${Resource.msg('novalnet.cancel', 'novalnet', null)}</a></td>
+                    </tr>
+                    </table>
+                </isif>
+                </td>
+            </tr>
+        </isloop>
+    </table>
+</isif>
+
+</isdecorate>

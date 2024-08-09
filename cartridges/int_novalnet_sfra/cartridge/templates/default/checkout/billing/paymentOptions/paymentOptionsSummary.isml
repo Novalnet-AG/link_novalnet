@@ -1,0 +1,68 @@
+<div class="payment-details">
+    <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}" var="payment">
+        <isset name="paymentProcessorID" value="${dw.order.PaymentMgr.getPaymentMethod(payment.paymentMethod).paymentProcessor.ID}" scope="page"/>
+        <isif condition="${paymentProcessorID === 'NOVALNET'}">
+            ${dw.order.PaymentMgr.getPaymentMethod(payment.paymentMethod).name}
+            <br>
+            <isset name="Order" value="${pdict.order}" scope="page"/>
+            <isif condition="${Order.orderNumber}">
+                <isset name="OrderData" value="${dw.order.OrderMgr.getOrder(Order.orderNumber)}" scope="page"/>
+                <div class="novalnet_payment_details">
+                    <div style="white-space:pre-line;"><isprint value="${OrderData.custom.novalnetPaymentComment}"/></div>
+                    
+                    <isif condition="${OrderData.custom.novalnetPaymentMethod === 'INSTALMENT_INVOICE' || OrderData.custom.novalnetPaymentMethod === 'INSTALMENT_DIRECT_DEBIT_SEPA'}">
+                        <isset name="novalnetHelper" value="${require('*/cartridge/scripts/novalnetHelper')}" scope="page" />
+                        <isset name="novalnetInstalmentData" value="${novalnetHelper.getInstalmentDetails(OrderData.custom.novalnetServerResponse)}" scope="page" />
+                        <br>
+                        <isif condition="${!empty(novalnetInstalmentData)}"> 
+                            <table class="table table-bordered novalnet-instalment-details-table">
+                                <tbody>
+                                    <tr>
+                                        <th>${Resource.msg('novalnet.instalement_sno', 'novalnet', null)}</th>
+                                        <th>${Resource.msg('novalnet.instalment.transactionid', 'novalnet', null)}</th>
+                                        <th>${Resource.msg('novalnet.amount', 'novalnet', null)}</th>
+                                        <th>${Resource.msg('novalnet.next_instalment_date', 'novalnet', null)}</th>
+                                        <th>${Resource.msg('novalnet.status', 'novalnet', null)}</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                <isloop items="${novalnetInstalmentData.total_cycles}" var="cycle">
+                                <isset name="instalment_next_date" value="${novalnetInstalmentData.cycle_dates[parseInt(cycle)+1] ? novalnetInstalmentData.cycle_dates[parseInt(cycle)+1] : '-'}" scope="page" />
+                                    <tr>
+                                        <td>${cycle}</td>
+                                        <isset name="tid" value="${novalnetInstalmentData[cycle] && novalnetInstalmentData[cycle].tid ? novalnetInstalmentData[cycle].tid : '-'}" scope="page" />
+                                        <td>${tid}</td>
+                                        <td>${novalnetInstalmentData.total_cycle_count == cycle ? novalnetInstalmentData.formatted_last_cycle_amount : novalnetInstalmentData.formatted_cycle_amount}</td>
+                                        <td>${instalment_next_date}</td>
+										<isset name="instalment_status" value="${OrderData.custom.novalnetPaymentStatus == 'DEACTIVATED' ? 'canceled' : (tid != '-' ? 'paid' : 'pending')}" scope="page" />
+                                        <isset name="instalment_cycle_refunded_amount" value="${novalnetInstalmentData[cycle] && novalnetInstalmentData[cycle].refunded_amount ? novalnetInstalmentData[cycle].refunded_amount : 0}" scope="page" />
+                                        <isset name="instalment_cycle_amount" value="${novalnetInstalmentData.total_cycle_count == cycle ? novalnetInstalmentData.last_cycle_amount : novalnetInstalmentData.cycle_amount}" scope="page" />
+										<isset name="instalment_cycle_open_amount" value="${instalment_cycle_amount - instalment_cycle_refunded_amount}" scope="page" />
+										<isset name="instalment_status" value="${instalment_cycle_open_amount > 0 ? instalment_status : 'refunded'}" scope="page" />
+                                        
+                                        <isif condition="${novalnetInstalmentData.cancel_type}">
+											<isif condition="${novalnetInstalmentData.cancel_type === 'cancel_all_cycles'}">
+												<isif condition="${tid != '-'}">
+													<isset name="instalment_status" value="${'refunded'}" scope="page" />
+												<iselse>
+													<isset name="instalment_status" value="${'canceled'}" scope="page" />
+												</isif>
+											<iselseif condition="${tid != '-'}">
+												<isset name="instalment_status" value="${instalment_cycle_open_amount == 0 ? 'refunded' : 'paid'}" scope="page" />
+											</iselseif>
+											<iselse>
+												<isset name="instalment_status" value="${'canceled'}" scope="page" />
+											</isif>
+										</isif>
+										<td class="w e s">${Resource.msg('novalnet.' + instalment_status, 'novalnet', null)}</td>
+                                    </tr>
+                                </isloop>
+                                </tbody>
+                            </table>
+                        </isif>   
+                    </isif>
+                </div>
+            </isif>
+        </isif>
+    </isloop>
+</div>

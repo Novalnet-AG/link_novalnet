@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<extensions xmlns="http://www.demandware.com/xml/bmmodules/2007-12-11"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.demandware.com/xml/bmmodules/2007-12-11 bmext.xsd">
+	<menuaction id="novalnet_extension_submenu" menupath="orders"
+		position="100" site="true">
+		<name xml:lang="x-default">Novalnet Orders</name>
+		<name xml:lang="de-DE">Novalnet-Bestellungen</name>
+		<short_description xml:lang="x-default">Manage Novalnet Orders.</short_description>
+		<short_description xml:lang="de-DE">Novalnet-Bestellungen verwalten</short_description>
+		<description xml:lang="x-default">Manage Novalnet Orders</description>
+		<description xml:lang="de-DE">Novalnet-Bestellungen verwalten</description>
+		<exec pipeline="NovalnetAdmin" node="Orders" />
+		<sub-pipelines>
+			<pipeline name="NovalnetAdmin-Orders" />
+			<pipeline name="NovalnetAdmin-OrderTransaction" />
+			<pipeline name="NovalnetAdmin-Action" />
+		</sub-pipelines>
+		<icon>icons/novalnet_transaction.png</icon>
+	</menuaction>
+	<menuaction id="novalnet_configuration_menu" menupath="site-prefs" position="1" site="true">
+		<name xml:lang="x-default">Novalnet API Configuration</name>
+		<name xml:lang="de-DE">Novalnet API-Konfiguration</name>
+		<short_description xml:lang="x-default">Novalnet API configuration can be adjusted here</short_description>
+		<short_description xml:lang="de-DE">Hier können Sie die Novalnet-API-Konfiguration anpassen</short_description>
+		<description xml:lang="x-default">Novalnet API configuration can be adjusted here</description>
+		<description xml:lang="de-DE">Hier können Sie die Novalnet-API-Konfiguration anpassen</description>
+		<exec pipeline="NovalnetConfiguration" node="Start" />
+        <sub-pipelines>
+			<pipeline name="NovalnetConfiguration-Start" />
+			<pipeline name="NovalnetConfiguration-SaveConfiguration" />
+			<pipeline name="NovalnetConfiguration-GetMerchantCredentials" />
+			<pipeline name="NovalnetConfiguration-ConfigureWebhookUrl" />
+		</sub-pipelines>
+		<icon>icons/novalnet_transaction.png</icon>
+	</menuaction>
+</extensions>

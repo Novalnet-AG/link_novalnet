@@ -1,0 +1,20 @@
+<div class="tab-pane <isif condition="${checkOption}">active</isif> ${paymentOption.ID}-content" id="${paymentOption.ID}-content" role="tabpanel">
+
+    <fieldset class="payment-form-fields">
+        <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}" value="${paymentOption.ID}">
+        <input type="hidden" id="nn_paymentfrom_ajax_url" value="${URLUtils.url('Novalnet-getPaymentFormUrl')}">
+        <input type="hidden" name="nn_payment_details" id="nn_payment_details">
+        <input type="hidden" name="nn_selected_payment_data" id="nn_selected_payment_data">
+        <input type="hidden" id="nn_wallet_params" value="${novalnetHelper.getWalletParams(dw.order.BasketMgr.getCurrentBasket())}" scope="page" />
+        
+        <isscript>
+            var assets = require('*/cartridge/scripts/assets.js');
+            assets.addJs('/js/novalnet.js');
+        </isscript>
+        
+        <div id="novalnet_payment_form">
+            <iframe id="novalnet_paymentform_iframe" frameborder="0" scrolling="no" style="width:100%" allow="payment" referrerpolicy="origin"></iframe>
+        </div>
+       
+    </fieldset>
+</div>

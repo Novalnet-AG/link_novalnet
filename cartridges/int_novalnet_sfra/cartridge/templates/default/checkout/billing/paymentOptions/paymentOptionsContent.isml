@@ -1,0 +1,37 @@
+<isset name="novalnetConfig" value="${require('*/cartridge/scripts/novalnetConfig')}" scope="page" />
+<isset name="novalnetHelper" value="${require('*/cartridge/scripts/novalnetHelper')}" scope="page" />
+<isset name="isNovalnetEnabled" value="${novalnetConfig.isNovalnetEnabled()}" scope="page" />
+
+<isif condition="${isNovalnetEnabled}">
+    <script type="text/javascript" src="https://cdn.novalnet.de/js/v2/NovalnetUtility.js"></script>
+    <script type="text/javascript" src="https://cdn.novalnet.de/js/pv13/checkout.js"></script>
+    <script type="text/javascript" src="https://cdn.novalnet.de/js/v3/payment.js"></script>
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/novalnet.js');
+    </isscript>
+</isif>
+
+
+<isloop items="${pdict.order.billing.payment.applicablePaymentMethods}" var="paymentOption" status="loopSate">
+    <isset name="selectedPaymentInstruments" value="${pdict.order.billing.payment.selectedPaymentInstruments}" scope="page" />
+    <isset name="selectedPaymentInstrument" value="${selectedPaymentInstruments && selectedPaymentInstruments.length ? selectedPaymentInstruments[0] : null}" scope="page" />
+    <isset name="isActive" value="${selectedPaymentInstrument && selectedPaymentInstrument.paymentMethod === paymentOption.ID}" scope="page" />
+    <isset name="isFirstPaymentOption" value="${pdict.order.billing.payment.applicablePaymentMethods[0].ID === paymentOption.ID}" scope="page" />
+    <isset name="checkOption" value="${isActive || empty(selectedPaymentInstrument) && isFirstPaymentOption}" scope="page" />
+
+    <isset name="paymentProcessorID" value="${dw.order.PaymentMgr.getPaymentMethod(paymentOption.ID).paymentProcessor.ID}" scope="page"/>    
+        
+    <isif condition="${paymentOption.ID === 'NOVALNET_PAYMENT'}">
+        <isinclude template="checkout/billing/paymentOptions/novalnetPaymentContent" />
+            
+        <div class="tab-pane ${paymentOption.ID}-content" id="${paymentOption.ID}-content" role="tabpanel">
+            <fieldset class="payment-form-fields">
+                <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}" value="${paymentOption.ID}">
+            </fieldset>
+        </div>
+    </isif>
+    
+</isloop>
+<input type="hidden" name="cardNumber" value="" class="cardNumber" id="cardNumber">
+

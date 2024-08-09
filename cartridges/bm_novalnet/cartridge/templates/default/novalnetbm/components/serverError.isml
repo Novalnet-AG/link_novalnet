@@ -1,0 +1,10 @@
+<isdecorate template="novalnetbm/util/header">
+
+<table class="error_box n s e w">
+    <tr valign="top">
+        <td class="error_icon top e"></td>
+        <td class="error top" width="100%">Error</td>
+    </tr>
+</table>
+
+</isdecorate>

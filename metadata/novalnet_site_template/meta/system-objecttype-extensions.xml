@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="OrderPaymentInstrument">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="novalnetTxnSecret">
+                <display-name xml:lang="x-default">NovalnetTxnSecret</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetSelectedPaymentData">
+                <display-name xml:lang="x-default">Novalnet selected payment data</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetPaymentDetails">
+                <display-name xml:lang="x-default">Novalnet Payment Details</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetPaymentName">
+                <display-name xml:lang="x-default">Novalnet Payment Name</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+    </type-extension>
+
+    <type-extension type-id="Order">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="novalnetPaymentComment">
+                <display-name xml:lang="x-default">Novalnet Payment Comment</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetPaymentMethod">
+                <display-name xml:lang="x-default">Novalnet Payment Method</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetPaymentStatus">
+                <display-name xml:lang="x-default">Novalnet Payment Status</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetTid">
+                <display-name xml:lang="x-default">Novalnet TID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetPaidAmount">
+                <display-name xml:lang="x-default">Amount Paid</display-name>
+                <description xml:lang="x-default">Amount paid (divide by 100)</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetOrderAmount">
+                <display-name xml:lang="x-default">Order Amount</display-name>
+                <description xml:lang="x-default">Order Amount(divide by 100)</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetServerResponse">
+                <display-name xml:lang="x-default">Novalnet Server Response</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetPaymentToken">
+                <display-name xml:lang="x-default">Novalnet Payment Token</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetZeroAmountBooking">
+                <display-name xml:lang="x-default">Zero Amount Booking</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="novalnetRefundedAmount">
+                <display-name xml:lang="x-default">Novalnet Refunded Amount</display-name>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+    </type-extension>
+    
+    <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="nnPublicKey">
+                <display-name xml:lang="x-default">Product activation key</display-name>
+                <description xml:lang="x-default">Get your Product activation key from the Novalnet Admin Portal&#58; PROJECT &#62; Choose your project &#62; Shop Parameters &#62; API Signature &#40;Product activation key&#41;</description>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnPrivateKey">
+                <display-name xml:lang="x-default">Payment access key</display-name>
+                <description xml:lang="x-default"> Get your Payment access key from the Novalnet Admin Portal&#58; PROJECT &#62; Choose your project &#62; Shop Parameters &#62; Payment access key</description>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnClientSecretKey">
+                <display-name xml:lang="x-default">Client Key</display-name>
+                <description xml:lang="x-default"> Get your client key from the Novalnet Admin Portal&#58; PROJECT &#62; Choose your project &#62; Shop Parameters &#62; Client Key</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnTariffID">
+                <display-name xml:lang="x-default">Tariff ID</display-name>
+                <description xml:lang="x-default"> Enter a Tariff ID to match the preferred tariff plan you created at the Novalnet Admin Portal for this project</description>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnEnabled">
+                <display-name xml:lang="x-default">Novalnet Enabled</display-name>
+                <description xml:lang="x-default">Enables or disables the cartridge</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnWebhookTestMode">
+                <display-name xml:lang="x-default">Allow manual testing of the Notification &#47; Webhook URL</display-name>
+                <description xml:lang="x-default">Enable this to test the Novalnet Notification &#47; Webhook URL manually. Disable this before setting your shop live to block unauthorized calls from external parties</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnWebhookEmailTo">
+                <display-name xml:lang="x-default">Send e&#45;mail to</display-name>
+                <description xml:lang="x-default">Notification &#47; Webhook URL execution messages will be sent to this e&#45;mail</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="nnWebhookUrl">
+                <display-name xml:lang="x-default">Notification &#47; Webhook URL</display-name>
+                <description xml:lang="x-default">You must configure the webhook endpoint in your Novalnet Admin portal. This will allow you to receive notifications about the transaction</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+    </type-extension>
+</metadata>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

@@ -1,0 +1,49 @@
+<isif condition="${pdict.CurrentHttpParameterMap.format.stringValue === 'ajax'}">
+
+    <isdecorate template="novalnetbm/util/empty">
+    
+        <div class="novalnetbm_content novalnetbm_content_ajax">
+            <isreplace/>
+        </div>
+        
+    </isdecorate>
+    
+<iselse>
+
+    <isdecorate template="application/MenuFrame">
+    
+        <link rel="stylesheet" href="${URLUtils.staticURL('/novalnetbm/css/bm.css')}" />
+        <link rel="stylesheet" href="${URLUtils.staticURL('/jscript/ext/resources/css/ext-all.css')}" />
+        
+        <script type="text/javascript" src="${URLUtils.staticURL('/jscript/ext/adapter/ext/ext-base.js')}"></script>
+        <script type="text/javascript" src="${URLUtils.staticURL('/jscript/ext/ext-all.js')}"></script>
+        
+        <script type="text/javascript" src="${URLUtils.staticURL('/novalnetbm/js/novalnetAdmin.js')}"></script>
+
+        <script type="text/javascript">
+            novalnetAdmin.init({
+                urls: {
+                    orderTransaction: "${URLUtils.url('NovalnetAdmin-OrderTransaction')}",
+                    action: "${URLUtils.url('NovalnetAdmin-Action')}"
+                },
+                resources: {
+                    refundConfirmMsg: "${Resource.msg('novalnet.refund.confirmation', 'novalnet', null)}",
+                    captureConfirmMsg: "${Resource.msg('novalnet.capture.confirmation', 'novalnet', null)}",
+                    voidConfirmMsg: "${Resource.msg('novalnet.void.confirmation', 'novalnet', null)}",
+                    refundAmountInvalid: "${Resource.msg('novalnet.refund.errormsg', 'novalnet', null)}",
+                    amountInvalid: "${Resource.msg('novalnet.amount.errormsg', 'novalnet', null)}",
+                    bookingConfirmMsg: "${Resource.msg('novalnet.amount_booking.confirmation', 'novalnet', null)}",
+                    cancelAllCycleConfirmMsg: "${Resource.msg('novalnet.cancel_all_instalment_cycle.alert', 'novalnet', null)}",
+                    cancelRemainingCycleConfirmMsg: "${Resource.msg('novalnet.cancel_remaining_instalment_cycle.alert', 'novalnet', null)}",
+                    waitMsg: "${Resource.msg('novalnet.wait.msg', 'novalnet', null)}"
+                }
+            });
+        </script>
+        
+        <div class="novalnetbm_content js_novalnetbm_content">
+            <isreplace/>
+        </div>
+    
+    </isdecorate>
+
+</isif>
