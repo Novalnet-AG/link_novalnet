@@ -1,0 +1,56 @@
+<div class="tab-pane <isif condition="${checkOption}">active</isif> ${paymentOption.ID}-content" id="${paymentOption.ID}-content" role="tabpanel">
+<isset name="novalnetSavedPaymentData" value="${novalnetHelper.getSavedPaymentDetails(dw.order.BasketMgr.getCurrentBasket(), 'CREDITCARD')}" scope="page" />
+    <fieldset class="payment-form-fields">
+        <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}" value="${paymentOption.ID}">
+        <input type="hidden" id="nn_pan_hash" name ="nn_pan_hash">
+        <input type="hidden" id="nn_unique_id" name ="nn_unique_id">
+        <input type="hidden" id="nn_do_redirect" name ="nn_do_redirect">
+        <input type="hidden" id="nn_client_key" value="${novalnetConfig.getClientKey()}">
+        <input type="hidden" id="nn_customer_email" value="${dw.order.BasketMgr.getCurrentBasket().getCustomerEmail()}">
+        <input type="hidden" id="nn_payment_config" value="${JSON.stringify(novalnetPaymentConfig)}">
+        
+        <isscript>
+            var assets = require('*/cartridge/scripts/assets.js');
+            assets.addJs('/js/novalnet_creditcard.js');
+        </isscript>
+        
+        <isif condition="${novalnetPaymentConfig.testMode === 1}">
+            <div class="nn-test-mode"><span>${Resource.msg('novalnet.testmode', 'novalnet', null)}</span></div>
+        </isif>
+
+        <isif condition="${novalnetPaymentConfig.oneclick === true}">
+            <isif condition="${!empty(novalnetSavedPaymentData)}">
+                <isloop items="${novalnetSavedPaymentData}" var="savedPaymentData" status="paymentDataLoop">
+                    <isset name="novalnetCardDetails" value="${JSON.parse(savedPaymentData.paymentData)}" scope="page" />
+                    <div>
+                        <input type="radio" name="novalnet_creditcard_saved_token" id="novalnet_creditcard_saved_token_${paymentDataLoop.index}" value="${savedPaymentData.token}">
+                        <label for="novalnet_creditcard_saved_token_${paymentDataLoop.index}">
+                        <img class="${paymentOption.ID.toLowerCase() + '-option'}" src="${URLUtils.staticURL('/images/novalnet_cc_' + novalnetCardDetails.card_brand.toLowerCase() + '.png')}" alt="${savedPaymentData.cardBrand}" title="${savedPaymentData.cardBrand}" />
+                        ${savedPaymentData.labelText}
+                        </label>
+                        &nbsp;&nbsp;<span class="nn-delete-token-btn" data-order-no="${savedPaymentData.orderNo}" data-order-token="${savedPaymentData.orderToken}" data-toggle="modal" data-target="#nnDeleteTokenModal"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                    </div>
+                </isloop>
+                <input type="radio" name="novalnet_creditcard_saved_token" id="novalnet_creditcard_new_card" checked value="new_account_details">
+                <label for="novalnet_creditcard_new_card">${Resource.msg('novalnet.checkout.add_new_card', 'novalnet', null)}</label>
+            </isif>
+        </isif>
+
+        <div id="novalnet_creditcard_payment_form">
+            <iframe id="novalnet_iframe" frameborder="0" scrolling="no" style="width:100%"></iframe>
+        </div>
+
+        <div class="nn-info-box">
+           <ul>
+               <li>
+                    <p>
+                        ${Resource.msg('novalnet.creditcard.description', 'novalnet', null)}
+                    </p>
+                    <isif condition="${novalnetPaymentConfig.buyerNotification}">
+                        <p>${novalnetPaymentConfig.buyerNotification}</p>
+                    </isif>
+                </li>
+            </ul>
+        </div>
+    </fieldset>
+</div>

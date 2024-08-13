@@ -1,0 +1,38 @@
+<div class="tab-pane <isif condition="${checkOption}">active</isif> ${paymentOption.ID}-content" id="${paymentOption.ID}-content" role="tabpanel">
+        <fieldset class="payment-form-fields">
+            <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}" value="${paymentOption.ID}">
+            <input type="hidden" class="form-control" name="novalnet_instalment_invoice_cycles" id="novalnet_instalment_invoice_cycles" value="${novalnetPaymentConfig.cycles}">
+            <isif condition="${novalnetPaymentConfig.testMode === 1}">
+                <div class="nn-test-mode"><span>${Resource.msg('novalnet.testmode', 'novalnet', null)}</span></div>
+            </isif>
+            <isset name="onholdAmount" value="${novalnetPaymentConfig.onholdAmount}" scope="page" />
+            
+            <div class="form-group required">
+                <label for="novalnet_instalment_invoice_dob" class="form-control-label">
+                    ${Resource.msg('novalnet.checkout.dob', 'novalnet', null)}
+                </label>
+                <input type="text" class="form-control" name="novalnet_instalment_invoice_dob" id="novalnet_instalment_invoice_dob" onkeydown="return NovalnetUtility.isNumericBirthdate( this, event );" placeholder="${Resource.msg('novalnet.dob.placeholder', 'novalnet', null)}">
+            </div>
+            
+            <div class="form-group required">
+                    <label for="novalnet_instalment_invoice_cycle" class="form-control-label" id="novalnet_instalment_invoice_cycle_label">
+                       
+                    </label>
+                    <select name="novalnet_instalment_invoice_cycle_select" id="novalnet_instalment_invoice_cycle_select" class="form-control custom-select">
+                    </select>
+                </div>
+            <div class="nn-info-box" id="novalnet_instalment_invoice_table"></div>
+            <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            ${Resource.msg('novalnet.invoice.description', 'novalnet', null)}
+                        </p>
+                        <isif condition="${novalnetPaymentConfig.buyerNotification}">
+                            <p>${novalnetPaymentConfig.buyerNotification}</p>
+                        </isif>
+                    </li>
+                </ul>
+            </div>
+        </fieldset>
+    </div>

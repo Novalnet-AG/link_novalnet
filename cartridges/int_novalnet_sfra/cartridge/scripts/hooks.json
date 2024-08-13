@@ -1,0 +1,12 @@
+{
+    "hooks": [
+        {
+            "name": "app.payment.processor.novalnet",
+            "script": "./hooks/payment/processor/novalnet"
+        },
+        {
+            "name": "app.payment.form.processor.novalnet",
+            "script": "./hooks/payment/processor/novalnet"
+        }
+    ]
+}

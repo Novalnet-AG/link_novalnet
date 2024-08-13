@@ -1,0 +1,28 @@
+<div class="tab-pane <isif condition="${checkOption}">active</isif> ${paymentOption.ID}-content" id="${paymentOption.ID}-content" role="tabpanel">
+        <fieldset class="payment-form-fields">
+            <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}" value="${paymentOption.ID}">
+            <input type="hidden" class="form-control" name="novalnet_guaranteed_invoice_forcenonguarantee" id="novalnet_guaranteed_invoice_forcenonguarantee" value="${novalnetPaymentConfig.forceNonGuarantee}">
+            <isif condition="${novalnetPaymentConfig.testMode === 1}">
+                <div class="nn-test-mode"><span>${Resource.msg('novalnet.testmode', 'novalnet', null)}</span></div>
+            </isif>
+            
+            <div class="form-group required">
+                <label for="novalnet_guaranteed_invoice_dob" class="form-control-label">
+                    ${Resource.msg('novalnet.checkout.dob', 'novalnet', null)}
+                </label>
+                <input type="text" class="form-control" name="novalnet_guaranteed_invoice_dob" id="novalnet_guaranteed_invoice_dob" onkeydown="return NovalnetUtility.isNumericBirthdate( this, event );" placeholder="${Resource.msg('novalnet.dob.placeholder', 'novalnet', null)}">
+            </div>
+            <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            ${Resource.msg('novalnet.invoice.description', 'novalnet', null)}
+                        </p>
+                        <isif condition="${novalnetPaymentConfig.buyerNotification}">
+                            <p>${novalnetPaymentConfig.buyerNotification}</p>
+                        </isif>
+                    </li>
+                </ul>
+            </div>
+        </fieldset>
+    </div>
